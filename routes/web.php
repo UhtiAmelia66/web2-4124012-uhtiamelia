@@ -15,3 +15,9 @@ Route::get('/perkenalan', function () {
             <p>Saya siap belajar Laravel! 🚀</p>';
 
 });
+
+Route::get('/yazkaa', function () {
+    return '<h1>Halo! Nama saya Yazkaa Zahaa</h1>
+            <p>NIM: 4124013 | Prodi: Sistem Informasi</p>
+            <p>Saya siap belajar Laravel!</p>';
+});
