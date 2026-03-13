@@ -12,12 +12,22 @@ Route::get('/', function () {
 });
 
 // ======================
-// 3 ROUTE STATIS
+// ROUTE STATIS PERKENALAN
 // ======================
 Route::get('/perkenalan', function () {
     return "<h1>Halo! Nama saya Uhti Amelia</h1>
             <p>NIM: 4124012 | Prodi: Sistem Informasi</p>";
-})->name('perkenalan.index');
+});
+
+Route::get('/perkenalan-yazka', function () {
+    return "<h1>Halo! Nama saya Yazka Dzahaa Dzakiyah</h1>
+            <p>NIM: 4124013 | Prodi: Sistem Informasi</p>";
+});
+
+Route::get('/perkenalan-yanis', function () {
+    return "<h1>Halo! Nama saya Yanis Kamil Fikri</h1>
+            <p>NIM: 4122004 | Prodi: Sistem Informasi</p>";
+});
 
 Route::get('/menu', function () {
     return "<h2>Menu Pemesanan Makanan</h2>";

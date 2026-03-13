@@ -16,7 +16,7 @@ class KatalogController extends Controller
             ["id"=>5,"nama"=>"Jus Alpukat","harga"=>10000],
         ];
 
-        return view('index', compact('produk'));
+        return view('katalog', compact('produk'));
     }
 
     public function show($id)
