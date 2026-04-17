@@ -1,50 +1,71 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProfilController;
-use App\Http\Controllers\KatalogController;
+use Illuminate\Http\Request;
 
-// ======================
-// HALAMAN UTAMA
-// ======================
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
-// ======================
-// ROUTE STATIS PERKENALAN
-// ======================
-Route::get('/perkenalan', function () {
-    return "<h1>Halo! Nama saya Uhti Amelia</h1>
-            <p>NIM: 4124012 | Prodi: Sistem Informasi</p>";
-});
+Route::get('/produk', function () {
+    $produks = [
+        [
+            'id' => 1,
+            'nama' => 'Nasi Goreng',
+            'harga' => 'Rp18.000',
+            'deskripsi' => 'Nasi goreng enak dengan rasa gurih dan lezat.'
+        ],
+        [
+            'id' => 2,
+            'nama' => 'Mie Ayam',
+            'harga' => 'Rp15.000',
+            'deskripsi' => 'Mie ayam gurih dengan topping ayam yang nikmat.'
+        ],
+        [
+            'id' => 3,
+            'nama' => 'Sate Ayam',
+            'harga' => 'Rp20.000',
+            'deskripsi' => 'Sate ayam dengan bumbu kacang yang khas.'
+        ],
+        [
+            'id' => 4,
+            'nama' => 'Bakso',
+            'harga' => 'Rp17.000',
+            'deskripsi' => 'Bakso kenyal dengan kuah hangat dan segar.'
+        ],
+        [
+            'id' => 5,
+            'nama' => 'Ayam Geprek',
+            'harga' => 'Rp16.000',
+            'deskripsi' => 'Ayam geprek pedas mantap dengan sambal nikmat.'
+        ],
+        [
+            'id' => 6,
+            'nama' => 'Soto Ayam',
+            'harga' => 'Rp14.000',
+            'deskripsi' => 'Soto ayam dengan kuah hangat dan lezat.'
+        ],
+    ];
 
-Route::get('/perkenalan-yazka', function () {
-    return "<h1>Halo! Nama saya Yazka Dzahaa Dzakiyah</h1>
-            <p>NIM: 4124013 | Prodi: Sistem Informasi</p>";
-});
+    return view('produk.index', compact('produks'));
+})->name('produk.index');
 
-Route::get('/perkenalan-yanis', function () {
-    return "<h1>Halo! Nama saya Yanis Kamil Fikri</h1>
-            <p>NIM: 4122004 | Prodi: Sistem Informasi</p>";
-});
+Route::get('/produk/create', function () {
+    return view('produk.create');
+})->name('produk.create');
 
-Route::get('/menu', function () {
-    return "<h2>Menu Pemesanan Makanan</h2>";
-})->name('menu.index');
+Route::post('/produk', function (Request $request) {
+    $request->validate([
+        'nama' => 'required|min:3',
+        'harga' => 'required|min:3',
+        'deskripsi' => 'required|min:10',
+    ]);
 
-Route::get('/kontak', function () {
-    return "<h2>Kontak Restoran</h2>";
-})->name('kontak.index');
+    return redirect()
+        ->route('produk.index')
+        ->with('success', 'Produk berhasil ditambahkan.');
+})->name('produk.store');
 
-// ======================
-// ROUTE PROFIL DINAMIS
-// ======================
-Route::get('/profil', [ProfilController::class, 'index'])->name('profil.index');
-Route::get('/profil/{nim}', [ProfilController::class, 'show'])->name('profil.show');
-
-// ======================
-// ROUTE KATALOG
-// ======================
-Route::get('/katalog', [KatalogController::class, 'index'])->name('katalog.index');
-Route::get('/katalog/{id}', [KatalogController::class, 'show'])->name('katalog.show');
+Route::get('/tentang', function () {
+    return view('tentang');
+})->name('tentang');

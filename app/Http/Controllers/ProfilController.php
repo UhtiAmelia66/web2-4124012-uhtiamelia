@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class ProfilController extends Controller
 {
     /**
-     * Menampilkan semua profil mahasiswa
+     * Menampilkan semua profil pemesan 
      */
     public function index()
     {
