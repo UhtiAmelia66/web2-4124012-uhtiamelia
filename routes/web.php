@@ -45,6 +45,12 @@ Route::get('/produk', function () {
             'harga' => 'Rp14.000',
             'deskripsi' => 'Soto ayam dengan kuah hangat dan lezat.'
         ],
+        [
+            'id' => 7,
+            'nama' => 'Sup Iga',
+            'harga' => 'Rp14.000',
+            'deskripsi' => 'Sop Iga dengan kuah gurih yang lezat.'
+        ],
     ];
 
     return view('produk.index', compact('produks'));
