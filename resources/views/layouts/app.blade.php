@@ -41,7 +41,7 @@
     <!-- FOOTER (SUDAH DIRAPIKAN) -->
     <footer class="bg-blue-900 text-white mt-10">
         <div class="max-w-7xl mx-auto px-4 py-6 text-center">
-            <p>&copy; {{ date('Y') }} FoodMarket. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} FoodMarket.BY Kelompok 5.</p>
         </div>
     </footer>
 
